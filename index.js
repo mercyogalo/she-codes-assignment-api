@@ -52,5 +52,6 @@ function displayTemperature(response) {
   
   currentDateELement.innerHTML = formatDate(currentDate);
   const weatherCondition=document.querySelector("#weather-condition");
-  console.log(weatherCondition);
+  weatherCondition.innerHTML=response.data.condition;
+  
   
