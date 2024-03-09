@@ -51,7 +51,15 @@ function displayTemperature(response) {
   let currentDate = new Date();
   
   currentDateELement.innerHTML = formatDate(currentDate);
-  const weatherCondition=document.querySelector("#weather-condition");
-  weatherCondition.innerHTML=response.data.condition;
   
+  let humityElement = document.querySelector("# weather-humidity");
+  humidityElement.innerHTML = response.data;
+  let conditionElement = document.querySelector("# weather-condition");
+  conditionElement.innerHTML = response.data;
+ let windElement = document.querySelector("#weather-wind ");
+  windElement.innerHTML = response.data;
+
+  
+ 
+
   
