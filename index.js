@@ -46,6 +46,7 @@ function displayTemperature(response) {
   }
   timeElement.innerHTML= ` ${days[date.getDay()]} ${hours}:${minutes}`;
  
+  const image=console.log(response.data);
   }
   
   
