@@ -42,11 +42,13 @@ function displayTemperature(response) {
   }
   
   if (hours<10){
-    `0${date.getHours()}`
+   hours= `0${date.getHours()}`
   }
   timeElement.innerHTML= ` ${days[date.getDay()]} ${hours}:${minutes}`;
+
  
-  const image=console.log(response.data);
+  const iconElement=document.querySelector("#icon")
+ iconElement.innerHTML= `<img src="${response.data.condition.icon_url}"class="current-temperature-icon">`
   }
   
   
