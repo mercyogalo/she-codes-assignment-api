@@ -52,9 +52,8 @@ function displayTemperature(response) {
   
   currentDateELement.innerHTML = formatDate(currentDate);
   
-  let humityElement = document.querySelector("# weather-humidity");
-  humidityElement.innerHTML = response.data;
-  let conditionElement = document.querySelector("# weather-condition");
+  
+  const conditionElement = document.querySelector("# weather-condition");
   conditionElement.innerHTML = response.data;
  let windElement = document.querySelector("#weather-wind ");
   windElement.innerHTML = response.data;
