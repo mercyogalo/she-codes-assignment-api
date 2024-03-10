@@ -4,6 +4,16 @@ function displayTemperature(response) {
     let cityElement = document.querySelector("#current-city");
     cityElement.innerHTML = response.data.city;
     temperatureElement.innerHTML = temperature;
+    const conditionElement=document.querySelector("#weather-condition");
+  conditionElement.innerHTML=response.data.condition.description;
+  const humidityElement=document.querySelector("#weather-humidity");
+  humidityElement.innerHTML=`${response.data.temperature.humidity}%`;
+  const windElement=document.querySelector("#weather-wind");
+  windElement.innerHTML=`${response.data.wind.speed}km/h`;
+  const timeElement=document.querySelector("#weather-time");
+  date=new Date(response.data.time*1000);
+  timeElement.innerHTML= `${formattedDay} ${hours}:${minutes}`;
+  
   }
   
   function search(event) {
@@ -41,23 +51,15 @@ function displayTemperature(response) {
     ];
   
     let formattedDay = days[day];
-    return `${formattedDay} ${hours}:${minutes}`;
+   
   }
   
   let searchForm = document.querySelector("#search-form");
   searchForm.addEventListener("submit", search);
   
-  let currentDateELement = document.querySelector("#current-date");
-  let currentDate = new Date();
-  
-  currentDateELement.innerHTML = formatDate(currentDate);
   
   
-  const conditionElement = document.querySelector("# weather-condition");
-  conditionElement.innerHTML = response.data;
- let windElement = document.querySelector("#weather-wind ");
-  windElement.innerHTML = response.data;
-
+  
   
  
 
