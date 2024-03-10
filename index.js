@@ -9,6 +9,8 @@ function search(event) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
+
+
 function displayTemperature(response) {
     let temperatureElement = document.querySelector("#current-temperature");
     let temperature = Math.round(response.data.temperature.current);
@@ -23,7 +25,26 @@ function displayTemperature(response) {
   windElement.innerHTML=`${response.data.wind.speed}km/h`;
   const timeElement=document.querySelector("#weather-time");
   date=new Date(response.data.time*1000);
-  timeElement.innerHTML= ` ${date.getHours()}:${date.getMinutes()}`;
+  const days=[
+    "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"]
+
+  const hours=date.getHours();
+  const minutes=date.getMinutes();
+
+   if (minutes<10){
+    `0${date.getMinutes()}`
+  }
+  
+  if (hours<10){
+    `0${date.getHours()}`
+  }
+  timeElement.innerHTML= ` ${days[date.getDay()]} ${hours}:${minutes}`;
  
   }
   
