@@ -38,12 +38,17 @@ function displayTemperature(response) {
   const minutes=date.getMinutes();
 
    if (minutes<10){
-    `0${date.getMinutes()}`
+    const minutes=`0${date.getMinutes()}`
+  }else{
+    const minutes=`${date.getMinutes()}`
   }
   
   if (hours<10){
-   hours= `0${date.getHours()}`
+    const hours=`0${date.getHours()}`
+  }else{
+    const hours=`${date.getHours()}`
   }
+  console.log(hours);
   timeElement.innerHTML= ` ${days[date.getDay()]} ${hours}:${minutes}`;
 
  
