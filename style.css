@@ -95,4 +95,11 @@ margin-right: 10px;
   
     color: rgba(39, 33, 66, 0.4);
   }
-  
+  .weather-forecast-day{
+    font-size: 20px;
+    opacity: 0.5;
+  }
+  .weather-forecast-min{
+    opacity: 0.5;
+    font-size: 18px;
+  }
