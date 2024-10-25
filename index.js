@@ -10,8 +10,9 @@ function search(event) {
 }
 
 
-
 function displayTemperature(response) {
+  let monthElement=document.querySelector("#season-month");
+  console.log(monthElement);
     let temperatureElement = document.querySelector("#current-temperature");
     let temperature = Math.round(response.data.temperature.current);
     let cityElement = document.querySelector("#current-city");
@@ -25,6 +26,41 @@ function displayTemperature(response) {
   windElement.innerHTML=`${response.data.wind.speed}km/h`;
   const timeElement=document.querySelector("#weather-time");
   date=new Date(response.data.time*1000);
+  const currentDate=new Date();
+  const months=[
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ]
+  
+
+  const currentMonth=months[currentDate.getMonth()]
+
+ if(currentMonth==="March"||"April"|| "May"){
+  let season="Spring"
+ }
+ else if(currentMonth==="June"||"July"|| "August"){
+  let  season="Summer"
+ }
+else if(currentMonth==="September"||"October"|| "November"){
+  let season="Fall"
+}
+else{
+  let season="Winter"
+}
+
+console.log(season);
+
+
   const days=[
     "Sunday",
   "Monday",
@@ -34,6 +70,7 @@ function displayTemperature(response) {
   "Friday",
   "Saturday"]
 
+  
   const hours=date.getHours();
   const minutes=date.getMinutes();
 
@@ -48,7 +85,6 @@ function displayTemperature(response) {
   }else{
     const hours=`${date.getHours()}`
   }
-  console.log(hours);
   timeElement.innerHTML= ` ${days[date.getDay()]} ${hours}:${minutes}`;
 
  
@@ -64,8 +100,7 @@ function displayTemperature(response) {
   
   
   
-  
-  
+    
  
 
   
