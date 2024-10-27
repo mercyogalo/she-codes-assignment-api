@@ -11,8 +11,9 @@ function search(event) {
 
 
 function displayTemperature(response) {
+  let cropHeading=document.querySelector("#crops-section-heading");
+  cropHeading.style.display = "block";
   let monthElement=document.querySelector("#season-month");
-  console.log(monthElement);
     let temperatureElement = document.querySelector("#current-temperature");
     let temperature = Math.round(response.data.temperature.current);
     let cityElement = document.querySelector("#current-city");
@@ -56,6 +57,11 @@ function displayTemperature(response) {
   } else {
     season = "Winter";
   }
+
+
+ 
+
+
 
   document.querySelector("#season-month").innerHTML = `${currentMonth} `;
 
@@ -102,7 +108,44 @@ function displayTemperature(response) {
   searchForm.addEventListener("submit", search);
   
   
+  const cropsBySeason = {
+    Spring: {
+      crops: ["Lettuce", "Spinach", "Radish", "Peas", "Carrots"],
+      reasons: "These crops thrive in mild temperatures and grow well before the summer heat."
+    },
+    Summer: {
+      crops: ["Tomatoes", "Peppers", "Cucumbers", "Beans", "Corn"],
+      reasons: "These crops require full sun and warmer soil temperatures to grow properly."
+    },
+    Fall: {
+      crops: ["Broccoli", "Cauliflower", "Kale", "Turnips", "Brussels Sprouts"],
+      reasons: "These vegetables are cold-tolerant and can withstand the cooler temperatures of fall."
+    },
+    Winter: {
+      crops: ["Garlic", "Onions", "Kale", "Spinach", "Cabbage"],
+      reasons: "These crops are hardy and can survive frost, making them ideal for winter planting."
+    }
+  };
   
+  // Display crops and reasons in HTML
+  function displayCrops(season) {
+    const cropContainer = document.querySelector("#crops-container");
+    const reasonContainer = document.querySelector("#reasons-container");
+   
+    
+    // Get crops and reasons based on season
+    const { crops, reasons } = cropsBySeason[season];
+  
+    // Create a list of crops
+    cropContainer.innerHTML = `<h3 id="crops-heading">Suitable Crops</h3>
+    <ul>${crops.map(crop => `<li>${crop}</li>`).join("")}</ul>`;
+  
+    // Display reasons for these crops
+    reasonContainer.innerHTML = ` <h3 id="crops-heading">Why These Crops?</h3>
+    <p>${reasons}</p>`;
+  }
+  
+ 
     
  
 
