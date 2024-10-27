@@ -45,20 +45,20 @@ function displayTemperature(response) {
 
   const currentMonth=months[currentDate.getMonth()]
 
- if(currentMonth==="March"||"April"|| "May"){
-  let season="Spring"
- }
- else if(currentMonth==="June"||"July"|| "August"){
-  let  season="Summer"
- }
-else if(currentMonth==="September"||"October"|| "November"){
-  let season="Fall"
-}
-else{
-  let season="Winter"
-}
+  let season;
 
-console.log(season);
+  if (["March", "April", "May"].includes(currentMonth)) {
+    season = "Spring";
+  } else if (["June", "July", "August"].includes(currentMonth)) {
+    season = "Summer";
+  } else if (["September", "October", "November"].includes(currentMonth)) {
+    season = "Fall";
+  } else {
+    season = "Winter";
+  }
+
+  document.querySelector("#season-month").innerHTML = `${currentMonth} `;
+
 
 
   const days=[
@@ -90,6 +90,9 @@ console.log(season);
  
   const iconElement=document.querySelector("#icon")
  iconElement.innerHTML= `<img src="${response.data.condition.icon_url}"class="current-temperature-icon">`
+
+
+ displayCrops(season);
   }
   
   
