@@ -6,21 +6,7 @@ body {
   a {
     color: #885df1;
   }
-  .crops-section {
-    display: flex;
-    justify-content: space-between;
-  }
-  #crops-heading{
-    font-size: 20px;
-  }
-  #reasons-container{
-    text-align: center;
-  }
-  #crops-section-heading{
-    display: none;
-    font-size: 30px;
-    color: #885df1;
-  }
+  
   .weather-app {
     background: white;
     max-width: 600px;

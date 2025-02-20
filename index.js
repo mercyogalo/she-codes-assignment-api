@@ -95,7 +95,7 @@ function displayTemperature(response) {
   const iconElement=document.querySelector("#icon")
  iconElement.innerHTML= `<img src="${response.data.condition.icon_url}"class="current-temperature-icon">`
 
-
+}
   
  
   
